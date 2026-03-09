@@ -1,0 +1,75 @@
+{
+  "nav": {
+    "about": "About",
+    "features": "Services",
+    "portfolio": "Portfolio",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Your Brand",
+    "subtitle": "Briefly describe your project or company",
+    "cta": "Learn more"
+  },
+  "about": {
+    "title": "About us",
+    "description": "Tell about your company, its mission and values. This text is a placeholder, replace it with real content.",
+    "stats": [
+      { "value": "10+", "label": "Years of experience" },
+      { "value": "200+", "label": "Projects" },
+      { "value": "50+", "label": "Clients" }
+    ]
+  },
+  "features": {
+    "title": "Our services",
+    "items": [
+      {
+        "title": "Development",
+        "description": "Describe your first service or advantage"
+      },
+      {
+        "title": "Design",
+        "description": "Describe your second service or advantage"
+      },
+      {
+        "title": "Marketing",
+        "description": "Describe your third service or advantage"
+      },
+      {
+        "title": "Analytics",
+        "description": "Describe your fourth service or advantage"
+      },
+      {
+        "title": "Support",
+        "description": "Describe your fifth service or advantage"
+      },
+      {
+        "title": "Consulting",
+        "description": "Describe your sixth service or advantage"
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "items": [
+      { "title": "Project 1", "category": "Web Development" },
+      { "title": "Project 2", "category": "Mobile App" },
+      { "title": "Project 3", "category": "Branding" },
+      { "title": "Project 4", "category": "UI/UX Design" },
+      { "title": "Project 5", "category": "Web Development" },
+      { "title": "Project 6", "category": "Marketing" }
+    ]
+  },
+  "partners": {
+    "title": "Our partners"
+  },
+  "contact": {
+    "title": "Contact",
+    "email": "hello@yourbrand.com",
+    "phone": "+380 XX XXX XX XX",
+    "address": "Kyiv, Example Street, 1"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  }
+}
