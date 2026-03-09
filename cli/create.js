@@ -176,7 +176,12 @@ async function updatePackageJson(projectDir, projectName) {
   const dependencies = {};
   const devDependencies = {};
 
-  for (const [name, version] of Object.entries(pkg.devDependencies || {})) {
+  const allDeps = {
+    ...pkg.dependencies,
+    ...pkg.devDependencies,
+  };
+
+  for (const [name, version] of Object.entries(allDeps)) {
     if (devOnly.includes(name)) {
       devDependencies[name] = version;
     } else {
