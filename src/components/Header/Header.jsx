@@ -40,7 +40,14 @@ const Header = () => {
   return (
     <header className={`header${scrolled ? " header--scrolled" : ""}`}>
       <div className="header__inner container">
-        <a className="header__logo" href="#" onClick={(e) => e.preventDefault()}>
+        <a
+          className="header__logo"
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
           {SITE_NAME}
         </a>
 
