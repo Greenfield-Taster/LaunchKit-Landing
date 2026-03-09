@@ -11,7 +11,8 @@ npx @greenfield-taster/launchkit-landing
 The CLI wizard will ask:
 1. **Project name** — your new project folder
 2. **Brand color** — hex color for auto-generated palette (default: `#6C3CE0`)
-3. **Languages** — `uk`, `en`, or `uk+en` (default: `uk+en`)
+3. **Theme** — `dark` or `light` (default: `dark`)
+4. **Languages** — `uk`, `en`, or `uk+en` (default: `uk+en`)
 
 Then start developing:
 
@@ -23,6 +24,7 @@ npm run dev
 ## Features
 
 - 🎨 Auto-generated color palette from a single hex color
+- 🌓 Dark and light theme support
 - 🌐 Built-in i18n (Ukrainian + English)
 - ✨ Scroll animations with Framer Motion
 - 🖥 Fully responsive (mobile → desktop)
