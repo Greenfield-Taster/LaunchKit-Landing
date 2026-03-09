@@ -1,0 +1,77 @@
+@use "../../styles/variables" as v;
+
+.glow-background {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+
+  &__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(v.$glow-blur);
+    opacity: v.$glow-opacity;
+    will-change: transform;
+
+    &--primary {
+      width: v.$glow-size;
+      height: v.$glow-size;
+      background: v.$brand-primary-500;
+      top: -10%;
+      right: -5%;
+      animation: float-1 25s ease-in-out infinite;
+    }
+
+    &--secondary {
+      width: calc(v.$glow-size * 0.8);
+      height: calc(v.$glow-size * 0.8);
+      background: v.$brand-secondary-500;
+      bottom: 20%;
+      left: -10%;
+      animation: float-2 30s ease-in-out infinite;
+    }
+
+    &--accent {
+      width: calc(v.$glow-size * 0.6);
+      height: calc(v.$glow-size * 0.6);
+      background: v.$brand-primary-400;
+      top: 50%;
+      right: 20%;
+      animation: float-3 20s ease-in-out infinite;
+    }
+
+    &--subtle {
+      width: calc(v.$glow-size * 0.7);
+      height: calc(v.$glow-size * 0.7);
+      background: v.$brand-primary-700;
+      bottom: -5%;
+      left: 30%;
+      opacity: calc(v.$glow-opacity * 0.6);
+      animation: float-4 35s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-30px, 40px) scale(1.1); }
+  66% { transform: translate(20px, -30px) scale(0.95); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 30px) scale(1.1); }
+}
+
+@keyframes float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-40px, -30px) scale(1.15); }
+}
+
+@keyframes float-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, 20px) scale(1.05); }
+  75% { transform: translate(-20px, -40px) scale(0.95); }
+}
