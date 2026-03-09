@@ -1,0 +1,199 @@
+// ─── Primary palette (base: #6C3CE0, deep purple) ───
+$brand-primary-50: #f3f0fe;
+$brand-primary-100: #e4ddfb;
+$brand-primary-200: #cbbcf7;
+$brand-primary-300: #a78ef0;
+$brand-primary-400: #8a5fe8;
+$brand-primary-500: #6c3ce0;
+$brand-primary-600: #5a30b8;
+$brand-primary-700: #472693;
+$brand-primary-800: #311a66;
+$brand-primary-900: #1e1040;
+
+// ─── Secondary palette (complementary ~180° → yellow-green) ───
+$brand-secondary-50: #f4fdef;
+$brand-secondary-100: #e5f9d8;
+$brand-secondary-200: #cbf2b2;
+$brand-secondary-300: #a7e57f;
+$brand-secondary-400: #8ad853;
+$brand-secondary-500: #6fcb2e;
+$brand-secondary-600: #5ba825;
+$brand-secondary-700: #47841d;
+$brand-secondary-800: #335e14;
+$brand-secondary-900: #1f390c;
+
+// ─── Neutrals (slight purple hue tint) ───
+$neutral-0: #ffffff;
+$neutral-50: #fafafb;
+$neutral-100: #f4f4f6;
+$neutral-200: #e8e8ec;
+$neutral-300: #d4d4da;
+$neutral-400: #a1a1ab;
+$neutral-500: #71717b;
+$neutral-600: #52525c;
+$neutral-700: #3f3f47;
+$neutral-800: #27272d;
+$neutral-900: #18181b;
+
+// ─── Semantic colors ───
+$success-light: #d1fae5;
+$success: #10b981;
+$success-dark: #059669;
+
+$warning-light: #fef3c7;
+$warning: #f59e0b;
+$warning-dark: #d97706;
+
+$error-light: #fee2e2;
+$error: #ef4444;
+$error-dark: #dc2626;
+
+$info-light: #dbeafe;
+$info: #3b82f6;
+$info-dark: #2563eb;
+
+// ─── Background ───
+$color-background: $neutral-900;
+
+// ─── Text colors ───
+$color-text-primary: $neutral-100;
+$color-text-secondary: $neutral-400;
+$color-text-tertiary: $neutral-500;
+$color-text-inverse: $neutral-900;
+
+// ─── Borders ───
+$color-border: $neutral-700;
+$color-border-light: $neutral-800;
+$color-border-dark: $neutral-600;
+
+// ─── Typography ───
+$font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  "Roboto", "Helvetica Neue", Arial, sans-serif;
+$font-family-mono: "SF Mono", Monaco, "Courier New", monospace;
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 1.875rem;
+$font-size-4xl: 2.25rem;
+$font-size-5xl: 3rem;
+$font-size-6xl: 3.75rem;
+$font-size-7xl: 4.5rem;
+$font-size-8xl: 6rem;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-tight: 1.25;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+$line-height-loose: 2;
+
+$letter-spacing-tight: -0.02em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.02em;
+
+// ─── Spacing ───
+$spacing-0: 0;
+$spacing-1: 0.25rem;
+$spacing-2: 0.5rem;
+$spacing-3: 0.75rem;
+$spacing-4: 1rem;
+$spacing-5: 1.25rem;
+$spacing-6: 1.5rem;
+$spacing-8: 2rem;
+$spacing-10: 2.5rem;
+$spacing-12: 3rem;
+$spacing-16: 4rem;
+$spacing-20: 5rem;
+$spacing-24: 6rem;
+$spacing-32: 8rem;
+
+$spacing-section: $spacing-16;
+$spacing-container: $spacing-12;
+$spacing-card: $spacing-6;
+$spacing-element: $spacing-4;
+
+// ─── Container ───
+$container-max-width: 1400px;
+
+// ─── Border radius ───
+$radius-none: 0;
+$radius-sm: 0.25rem;
+$radius-base: 0.5rem;
+$radius-md: 0.75rem;
+$radius-lg: 1rem;
+$radius-xl: 1.5rem;
+$radius-2xl: 2rem;
+$radius-full: 9999px;
+
+$radius-button: $radius-md;
+$radius-card: $radius-lg;
+$radius-input: $radius-base;
+$radius-badge: $radius-full;
+
+// ─── Shadows ───
+$shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+$shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.25),
+  0 1px 2px -1px rgba(0, 0, 0, 0.25);
+$shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
+  0 2px 4px -2px rgba(0, 0, 0, 0.3);
+$shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+  0 4px 6px -4px rgba(0, 0, 0, 0.3);
+$shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
+  0 8px 10px -6px rgba(0, 0, 0, 0.3);
+$shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+$shadow-card: $shadow-sm;
+$shadow-card-hover: $shadow-md;
+$shadow-button: $shadow-xs;
+$shadow-dropdown: $shadow-lg;
+$shadow-modal: $shadow-xl;
+
+// ─── Transitions ───
+$transition-fast: 150ms;
+$transition-base: 200ms;
+$transition-slow: 300ms;
+$transition-slower: 500ms;
+
+$transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+$transition-timing-in: cubic-bezier(0.4, 0, 1, 1);
+$transition-timing-out: cubic-bezier(0, 0, 0.2, 1);
+
+$transition-button: all $transition-fast $transition-timing;
+$transition-card: all $transition-base $transition-timing;
+$transition-modal: all $transition-slow $transition-timing;
+
+// ─── Z-index ───
+$z-base: 0;
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-fixed: 300;
+$z-backdrop: 400;
+$z-modal: 500;
+$z-popover: 600;
+$z-tooltip: 700;
+
+// ─── Breakpoints ───
+$breakpoint-xs: 320px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1440px;
+$breakpoint-3xl: 1620px;
+
+// ─── Glassmorphism ───
+$glass-bg: rgba(255, 255, 255, 0.05);
+$glass-border: rgba(255, 255, 255, 0.1);
+$glass-blur: 20px;
+
+// ─── Glow ───
+$glow-size: 600px;
+$glow-blur: 150px;
+$glow-opacity: 0.15;

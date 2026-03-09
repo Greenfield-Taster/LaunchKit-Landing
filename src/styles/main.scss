@@ -1,0 +1,54 @@
+@use "reset";
+@use "variables" as v;
+
+body {
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-base;
+  font-weight: v.$font-weight-regular;
+  line-height: v.$line-height-normal;
+  color: v.$color-text-primary;
+  background-color: v.$color-background;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: v.$container-max-width;
+  margin: 0 auto;
+  padding: 0 v.$spacing-6;
+
+  @media (max-width: v.$breakpoint-sm) {
+    padding: 0 v.$spacing-4;
+  }
+}
+
+section {
+  padding: v.$spacing-24 0;
+  position: relative;
+
+  @media (max-width: v.$breakpoint-md) {
+    padding: v.$spacing-16 0;
+  }
+
+  @media (max-width: v.$breakpoint-sm) {
+    padding: v.$spacing-12 0;
+  }
+}
+
+.section-title {
+  font-size: v.$font-size-5xl;
+  font-weight: v.$font-weight-bold;
+  letter-spacing: v.$letter-spacing-tight;
+  line-height: v.$line-height-tight;
+  margin-bottom: v.$spacing-12;
+
+  @media (max-width: v.$breakpoint-md) {
+    font-size: v.$font-size-4xl;
+    margin-bottom: v.$spacing-8;
+  }
+
+  @media (max-width: v.$breakpoint-sm) {
+    font-size: v.$font-size-3xl;
+    margin-bottom: v.$spacing-6;
+  }
+}
