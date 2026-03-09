@@ -1,0 +1,84 @@
+@use "../../styles/variables" as v;
+
+.features {
+  padding: v.$spacing-section 0;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-12;
+  }
+
+  &__title {
+    font-size: v.$font-size-4xl;
+    font-weight: v.$font-weight-bold;
+    color: v.$color-text-primary;
+    letter-spacing: v.$letter-spacing-tight;
+
+    @media (max-width: v.$breakpoint-sm) {
+      font-size: v.$font-size-3xl;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: v.$spacing-6;
+
+    @media (max-width: v.$breakpoint-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: v.$breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    background: v.$glass-bg;
+    border: 1px solid v.$glass-border;
+    backdrop-filter: blur(12px);
+    border-radius: v.$radius-card;
+    padding: v.$spacing-8;
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-4;
+    transition: v.$transition-card;
+
+    &:hover {
+      border-color: v.$brand-primary-500;
+      box-shadow: v.$shadow-card-hover;
+    }
+
+    &--wide {
+      grid-column: span 2;
+
+      @media (max-width: v.$breakpoint-sm) {
+        grid-column: span 1;
+      }
+    }
+  }
+
+  &__icon-wrapper {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: v.$radius-full;
+    background: rgba(v.$brand-primary-500, 0.15);
+    color: v.$brand-primary-400;
+  }
+
+  &__card-title {
+    font-size: v.$font-size-xl;
+    font-weight: v.$font-weight-semibold;
+    color: v.$color-text-primary;
+  }
+
+  &__card-description {
+    font-size: v.$font-size-base;
+    color: v.$color-text-secondary;
+    line-height: v.$line-height-relaxed;
+  }
+}
