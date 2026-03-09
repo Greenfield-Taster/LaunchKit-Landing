@@ -1,9 +1,17 @@
 {
   "name": "@greenfield-taster/launchkit-landing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "CLI wizard to scaffold a modern one-page landing template with auto-generated color palette and i18n",
-  "keywords": ["landing", "template", "react", "vite", "scaffold", "cli", "one-page"],
+  "keywords": [
+    "landing",
+    "template",
+    "react",
+    "vite",
+    "scaffold",
+    "cli",
+    "one-page"
+  ],
   "author": "greenfield-taster",
   "license": "MIT",
   "repository": {
