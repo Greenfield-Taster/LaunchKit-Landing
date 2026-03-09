@@ -1,0 +1,97 @@
+@use "../../styles/variables" as v;
+
+.about {
+  padding: v.$spacing-section 0;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-12;
+  }
+
+  &__title {
+    font-size: v.$font-size-4xl;
+    font-weight: v.$font-weight-bold;
+    color: v.$color-text-primary;
+    letter-spacing: v.$letter-spacing-tight;
+
+    @media (max-width: v.$breakpoint-sm) {
+      font-size: v.$font-size-3xl;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: v.$spacing-12;
+    align-items: start;
+
+    @media (max-width: v.$breakpoint-md) {
+      grid-template-columns: 1fr;
+      gap: v.$spacing-8;
+    }
+  }
+
+  &__text-wrapper {
+    display: flex;
+    gap: v.$spacing-6;
+  }
+
+  &__accent {
+    flex-shrink: 0;
+    width: 4px;
+    border-radius: v.$radius-full;
+    background: v.$brand-primary-500;
+  }
+
+  &__description {
+    font-size: v.$font-size-lg;
+    color: v.$color-text-secondary;
+    line-height: v.$line-height-relaxed;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: v.$spacing-4;
+
+    @media (max-width: v.$breakpoint-sm) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__stat-card {
+    background: v.$glass-bg;
+    border: 1px solid v.$glass-border;
+    backdrop-filter: blur(12px);
+    border-radius: v.$radius-card;
+    padding: v.$spacing-6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: v.$spacing-2;
+    transition: v.$transition-card;
+
+    &:hover {
+      border-color: v.$brand-primary-500;
+      box-shadow: v.$shadow-card-hover;
+    }
+  }
+
+  &__stat-value {
+    font-size: v.$font-size-4xl;
+    font-weight: v.$font-weight-bold;
+    color: v.$brand-primary-400;
+    line-height: v.$line-height-tight;
+
+    @media (max-width: v.$breakpoint-sm) {
+      font-size: v.$font-size-3xl;
+    }
+  }
+
+  &__stat-label {
+    font-size: v.$font-size-sm;
+    color: v.$color-text-secondary;
+  }
+}
