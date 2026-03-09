@@ -1,3 +1,13 @@
+import { Instagram, Facebook, Twitter, Linkedin, Github } from "lucide-react";
+
+export const ICON_MAP = {
+  Instagram,
+  Facebook,
+  Twitter,
+  LinkedIn: Linkedin,
+  GitHub: Github,
+};
+
 export const NAV_LINKS = [
   { id: "about", translationKey: "nav.about" },
   { id: "features", translationKey: "nav.features" },

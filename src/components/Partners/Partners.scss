@@ -61,6 +61,16 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .partners__track {
+    animation: none;
+  }
+
+  .partners__marquee-inner {
+    animation: none;
+  }
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0);

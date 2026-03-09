@@ -1,15 +1,6 @@
-import { Instagram, Facebook, Twitter, Linkedin, Github } from "lucide-react";
 import { useLanguage } from "../../contexts/language/useLanguage";
-import { NAV_LINKS, SOCIAL_LINKS, SITE_NAME } from "../../data/siteData";
+import { NAV_LINKS, SOCIAL_LINKS, SITE_NAME, ICON_MAP } from "../../data/siteData";
 import "./Footer.scss";
-
-const ICON_MAP = {
-  Instagram,
-  Facebook,
-  Twitter,
-  LinkedIn: Linkedin,
-  GitHub: Github,
-};
 
 const Footer = () => {
   const { t } = useLanguage();

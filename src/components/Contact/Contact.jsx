@@ -1,16 +1,8 @@
-import { Mail, Phone, MapPin, Instagram, Facebook, Twitter, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import AnimatedSection from "../AnimatedSection/AnimatedSection";
 import { useLanguage } from "../../contexts/language/useLanguage";
-import { SOCIAL_LINKS } from "../../data/siteData";
+import { SOCIAL_LINKS, ICON_MAP } from "../../data/siteData";
 import "./Contact.scss";
-
-const ICON_MAP = {
-  Instagram,
-  Facebook,
-  Twitter,
-  LinkedIn: Linkedin,
-  GitHub: Github,
-};
 
 const CONTACT_ITEMS = [
   { icon: Mail, labelKey: "Email", valueKey: "contact.email" },

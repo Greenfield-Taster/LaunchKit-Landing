@@ -191,7 +191,6 @@ async function updatePackageJson(projectDir, projectName) {
     scripts: {
       dev: "vite",
       build: "vite build",
-      lint: "eslint .",
       preview: "vite preview",
     },
     dependencies,
@@ -336,6 +335,7 @@ async function main() {
     "cli",
     ".claude",
     ".env",
+    ".npmignore",
   ];
 
   await cp(TEMPLATE_DIR, projectDir, {

@@ -14,10 +14,10 @@ $header-height-mobile: 64px;
   transition: all v.$transition-slow v.$transition-timing;
 
   &--scrolled {
-    background: rgba(24, 24, 27, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom-color: rgba(255, 255, 255, 0.08);
+    background: v.$glass-bg;
+    backdrop-filter: blur(v.$glass-blur);
+    -webkit-backdrop-filter: blur(v.$glass-blur);
+    border-bottom-color: v.$glass-border;
   }
 
   &__inner {
@@ -93,10 +93,10 @@ $header-height-mobile: 64px;
     flex-direction: column;
     gap: v.$spacing-6;
     padding: v.$spacing-6;
-    background: rgba(24, 24, 27, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: v.$glass-bg;
+    backdrop-filter: blur(v.$glass-blur);
+    -webkit-backdrop-filter: blur(v.$glass-blur);
+    border-bottom: 1px solid v.$glass-border;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -143,6 +143,6 @@ $header-height-mobile: 64px;
 
   &__mobile-actions {
     padding-top: v.$spacing-4;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid v.$glass-border;
   }
 }

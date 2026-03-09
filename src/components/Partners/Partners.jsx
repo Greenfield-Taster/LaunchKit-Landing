@@ -2,6 +2,7 @@ import AnimatedSection from "../AnimatedSection/AnimatedSection";
 import { useLanguage } from "../../contexts/language/useLanguage";
 import "./Partners.scss";
 
+// Placeholder SVG colors below are decorative defaults; replace with your actual partner logos.
 const partnerLogos = Array.from({ length: 8 }, (_, i) => {
   const shapes = [
     <circle cx="30" cy="30" r="8" fill="rgba(108,60,224,0.6)" key="s" />,

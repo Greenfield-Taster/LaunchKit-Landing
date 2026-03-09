@@ -1,6 +1,14 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
+const directions = {
+  up: { y: 40, x: 0 },
+  down: { y: -40, x: 0 },
+  left: { x: 40, y: 0 },
+  right: { x: -40, y: 0 },
+  none: { x: 0, y: 0 },
+};
+
 const AnimatedSection = ({
   children,
   className = "",
@@ -11,14 +19,6 @@ const AnimatedSection = ({
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once, margin: "-100px" });
-
-  const directions = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { x: 40, y: 0 },
-    right: { x: -40, y: 0 },
-    none: { x: 0, y: 0 },
-  };
 
   const dir = directions[direction] || directions.up;
 

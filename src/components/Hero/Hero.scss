@@ -63,7 +63,7 @@
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 40px rgba(108, 60, 224, 0.4);
+      box-shadow: 0 0 40px v.$brand-primary-400;
     }
 
     &:active {
