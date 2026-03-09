@@ -1,0 +1,115 @@
+@use "../../styles/variables" as v;
+
+.contact {
+  padding: v.$spacing-section 0;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$spacing-12;
+  }
+
+  &__title {
+    font-size: v.$font-size-4xl;
+    font-weight: v.$font-weight-bold;
+    color: v.$color-text-primary;
+    letter-spacing: v.$letter-spacing-tight;
+    text-align: center;
+
+    @media (max-width: v.$breakpoint-sm) {
+      font-size: v.$font-size-3xl;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: v.$spacing-6;
+    width: 100%;
+    max-width: 900px;
+
+    @media (max-width: v.$breakpoint-md) {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+  }
+
+  &__card {
+    background: v.$glass-bg;
+    border: 1px solid v.$glass-border;
+    backdrop-filter: blur(v.$glass-blur);
+    border-radius: v.$radius-card;
+    padding: v.$spacing-8 v.$spacing-6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: v.$spacing-3;
+    transition: v.$transition-card;
+
+    &:hover {
+      border-color: v.$brand-primary-500;
+      box-shadow: v.$shadow-card-hover;
+    }
+  }
+
+  &__card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: v.$radius-full;
+    background: rgba(v.$brand-primary-500, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: v.$brand-primary-400;
+    margin-bottom: v.$spacing-2;
+  }
+
+  &__card-label {
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-medium;
+    color: v.$color-text-secondary;
+    text-transform: uppercase;
+    letter-spacing: v.$letter-spacing-wide;
+  }
+
+  &__card-value {
+    font-size: v.$font-size-base;
+    color: v.$color-text-primary;
+    line-height: v.$line-height-normal;
+  }
+
+  &__socials {
+    display: flex;
+    gap: v.$spacing-4;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__social-wrapper {
+    display: inline-flex;
+  }
+
+  &__social-link {
+    width: 44px;
+    height: 44px;
+    border-radius: v.$radius-full;
+    background: v.$glass-bg;
+    border: 1px solid v.$glass-border;
+    backdrop-filter: blur(v.$glass-blur);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: v.$color-text-secondary;
+    transition: v.$transition-card;
+    text-decoration: none;
+
+    &:hover {
+      background: v.$brand-primary-500;
+      color: v.$neutral-0;
+      border-color: v.$brand-primary-500;
+      transform: scale(1.1);
+    }
+  }
+}
