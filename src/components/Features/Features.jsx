@@ -24,7 +24,7 @@ const Features = () => {
         </AnimatedSection>
 
         <div className="features__grid">
-          {items.map((item, index) => {
+          {Array.isArray(items) && items.map((item, index) => {
             const Icon = icons[index];
             const isWide = index === 0 || index === 3;
 

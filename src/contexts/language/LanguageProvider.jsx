@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import { LanguageContext } from "./LanguageContext";
 import uk from "../../locales/uk.json";
 import en from "../../locales/en.json";
@@ -25,6 +25,10 @@ export const LanguageProvider = ({ children }) => {
       } catch {}
     }
   }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   const t = useCallback(
     (key) => {

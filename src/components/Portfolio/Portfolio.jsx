@@ -2,6 +2,7 @@ import AnimatedSection from "../AnimatedSection/AnimatedSection";
 import { useLanguage } from "../../contexts/language/useLanguage";
 import "./Portfolio.scss";
 
+// Placeholder SVG colors below are decorative defaults; replace with your actual project images.
 const gradients = [
   { from: "#6C3CE0", to: "#a78ef0" },
   { from: "#5a30b8", to: "#6fcb2e" },
@@ -84,7 +85,7 @@ const Portfolio = () => {
         </AnimatedSection>
 
         <div className="portfolio__grid">
-          {items.map((item, index) => (
+          {Array.isArray(items) && items.map((item, index) => (
             <AnimatedSection
               key={index}
               className={`portfolio__item ${sizeClasses[index]}`.trim()}

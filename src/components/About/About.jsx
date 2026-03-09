@@ -20,7 +20,7 @@ const About = () => {
           </AnimatedSection>
 
           <div className="about__stats">
-            {stats.map((stat, index) => (
+            {Array.isArray(stats) && stats.map((stat, index) => (
               <AnimatedSection
                 key={index}
                 className="about__stat-card"
