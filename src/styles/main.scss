@@ -25,6 +25,11 @@ body {
 section {
   padding: v.$spacing-24 0;
   position: relative;
+  scroll-margin-top: 100px;
+
+  @media (max-width: v.$breakpoint-md) {
+    scroll-margin-top: 80px;
+  }
 
   @media (max-width: v.$breakpoint-md) {
     padding: v.$spacing-16 0;
