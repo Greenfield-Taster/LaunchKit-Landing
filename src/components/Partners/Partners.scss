@@ -1,0 +1,71 @@
+@use "../../styles/variables" as v;
+
+.partners {
+  padding: v.$spacing-section 0;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-12;
+  }
+
+  &__title {
+    font-size: v.$font-size-4xl;
+    font-weight: v.$font-weight-bold;
+    color: v.$color-text-primary;
+    letter-spacing: v.$letter-spacing-tight;
+
+    @media (max-width: v.$breakpoint-sm) {
+      font-size: v.$font-size-3xl;
+    }
+  }
+
+  &__marquee {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-6;
+    margin-top: v.$spacing-12;
+    overflow: hidden;
+  }
+
+  &__marquee-track {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+
+    &:hover .partners__marquee-inner {
+      animation-play-state: paused;
+    }
+  }
+
+  &__marquee-inner {
+    display: flex;
+    gap: v.$spacing-8;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+
+    .partners__marquee-track--reverse & {
+      animation-direction: reverse;
+    }
+  }
+
+  &__logo {
+    width: 200px;
+    height: 60px;
+    flex-shrink: 0;
+
+    @media (max-width: v.$breakpoint-sm) {
+      width: 160px;
+      height: 48px;
+    }
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
