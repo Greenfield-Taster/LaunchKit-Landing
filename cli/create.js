@@ -263,6 +263,100 @@ async function setupLanguages(projectDir, languages) {
 }
 
 // ========================================
+// THEME
+// ========================================
+
+async function applyTheme(projectDir, theme) {
+  if (theme !== "light") return;
+
+  // --- _variables.scss ---
+  const varsFile = resolve(projectDir, "src/styles/_variables.scss");
+  let vars = await readFile(varsFile, "utf-8");
+
+  // Semantic: background
+  vars = vars.replace(/\$color-background:.*?;/, "$color-background: $neutral-50;");
+
+  // Semantic: text colors
+  vars = vars.replace(/\$color-text-primary:.*?;/, "$color-text-primary: $neutral-800;");
+  vars = vars.replace(/\$color-text-secondary:.*?;/, "$color-text-secondary: $neutral-500;");
+  vars = vars.replace(/\$color-text-tertiary:.*?;/, "$color-text-tertiary: $neutral-400;");
+  vars = vars.replace(/\$color-text-inverse:.*?;/, "$color-text-inverse: $neutral-0;");
+
+  // Semantic: borders
+  vars = vars.replace(/\$color-border:.*?;/, "$color-border: $neutral-200;");
+  vars = vars.replace(/\$color-border-light:.*?;/, "$color-border-light: $neutral-100;");
+  vars = vars.replace(/\$color-border-dark:.*?;/, "$color-border-dark: $neutral-300;");
+
+  // Glassmorphism
+  vars = vars.replace(/\$glass-bg:.*?;/, "$glass-bg: rgba(255, 255, 255, 0.7);");
+  vars = vars.replace(/\$glass-border:.*?;/, "$glass-border: rgba(0, 0, 0, 0.08);");
+  vars = vars.replace(/\$glass-blur:.*?;/, "$glass-blur: 20px;");
+
+  // Glow
+  vars = vars.replace(/\$glow-size:.*?;/, "$glow-size: 600px;");
+  vars = vars.replace(/\$glow-blur:.*?;/, "$glow-blur: 150px;");
+  vars = vars.replace(/\$glow-opacity:.*?;/, "$glow-opacity: 0.08;");
+
+  await writeFile(varsFile, vars, "utf-8");
+
+  // --- Footer.scss ---
+  const footerFile = resolve(projectDir, "src/components/Footer/Footer.scss");
+  let footer = await readFile(footerFile, "utf-8");
+  footer = footer.replace(
+    /rgba\(v\.\$neutral-800, 0\.4\)/,
+    "rgba(v.$neutral-200, 0.4)"
+  );
+  await writeFile(footerFile, footer, "utf-8");
+
+  // --- LanguageSwitcher.scss ---
+  const langSwitcherFile = resolve(projectDir, "src/components/LanguageSwitcher/LanguageSwitcher.scss");
+  let langSwitcher = await readFile(langSwitcherFile, "utf-8");
+  langSwitcher = langSwitcher.replace(
+    /rgba\(255, 255, 255, 0\.12\)/,
+    "rgba(0, 0, 0, 0.06)"
+  );
+  langSwitcher = langSwitcher.replace(
+    /rgba\(255, 255, 255, 0\.18\)/,
+    "rgba(0, 0, 0, 0.12)"
+  );
+  await writeFile(langSwitcherFile, langSwitcher, "utf-8");
+
+  // --- Partners.jsx ---
+  const partnersFile = resolve(projectDir, "src/components/Partners/Partners.jsx");
+  let partners = await readFile(partnersFile, "utf-8");
+  partners = partners.replace(
+    /stroke="rgba\(255,255,255,0\.1\)"/g,
+    'stroke="rgba(0,0,0,0.1)"'
+  );
+  partners = partners.replace(
+    /fill="rgba\(255,255,255,0\.4\)"/g,
+    'fill="rgba(0,0,0,0.35)"'
+  );
+  await writeFile(partnersFile, partners, "utf-8");
+
+  // --- Portfolio.jsx ---
+  const portfolioFile = resolve(projectDir, "src/components/Portfolio/Portfolio.jsx");
+  let portfolio = await readFile(portfolioFile, "utf-8");
+  portfolio = portfolio.replace(
+    /fill="rgba\(255,255,255,0\.08\)"/g,
+    'fill="rgba(0,0,0,0.06)"'
+  );
+  portfolio = portfolio.replace(
+    /fill="rgba\(255,255,255,0\.06\)"/g,
+    'fill="rgba(0,0,0,0.04)"'
+  );
+  portfolio = portfolio.replace(
+    /stroke="rgba\(255,255,255,0\.1\)"/g,
+    'stroke="rgba(0,0,0,0.08)"'
+  );
+  portfolio = portfolio.replace(
+    /fill="rgba\(255,255,255,0\.15\)"/g,
+    'fill="rgba(0,0,0,0.12)"'
+  );
+  await writeFile(portfolioFile, portfolio, "utf-8");
+}
+
+// ========================================
 // MAIN
 // ========================================
 
@@ -301,7 +395,18 @@ async function main() {
     process.exit(1);
   }
 
-  // 3. Languages
+  // 3. Theme
+  console.log("");
+  const themeInput = await ask("Тема сайту (dark, light)", "dark");
+  const theme = themeInput.toLowerCase().trim();
+
+  if (theme !== "dark" && theme !== "light") {
+    console.log(`Невірна тема: ${theme}. Використовуйте "dark" або "light".`);
+    rl.close();
+    process.exit(1);
+  }
+
+  // 4. Languages
   console.log("");
   const langInput = await ask("Мови сайту (uk, en, uk+en)", "uk+en");
   const languages = langInput
@@ -320,7 +425,7 @@ async function main() {
 
   rl.close();
 
-  // 4. Copy template
+  // 5. Copy template
   console.log("");
   console.log(`Створюю проект "${projectName}"...`);
 
@@ -349,24 +454,30 @@ async function main() {
     },
   });
 
-  // 5. Update package.json
+  // 6. Update package.json
   console.log("Оновлюю назву проекту...");
   await updatePackageJson(projectDir, projectName);
 
-  // 6. Update siteData.js
+  // 7. Update siteData.js
   await updateSiteData(projectDir, projectName);
 
-  // 7. Generate colors
+  // 8. Generate colors
   if (brandColor.toLowerCase() !== "#6c3ce0") {
     console.log(`Генерую кольорову палітру з ${brandColor}...`);
     await applyColors(projectDir, brandColor);
   }
 
-  // 8. Setup languages
+  // 9. Apply theme
+  if (theme === "light") {
+    console.log("Застосовую світлу тему...");
+    await applyTheme(projectDir, theme);
+  }
+
+  // 10. Setup languages
   console.log("Налаштовую мови...");
   await setupLanguages(projectDir, languages);
 
-  // 9. Install dependencies
+  // 11. Install dependencies
   console.log("Встановлюю залежності...");
   try {
     execSync("npm install", { cwd: projectDir, stdio: "inherit" });
@@ -375,7 +486,7 @@ async function main() {
     console.log(`  cd ${projectName} && npm install`);
   }
 
-  // 10. Done
+  // 12. Done
   console.log("");
   console.log("  Готово! Запускайте:");
   console.log(`  cd ${projectName}`);
