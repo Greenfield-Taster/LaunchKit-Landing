@@ -1,0 +1,29 @@
+@use "../../styles/variables" as v;
+
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  padding: v.$spacing-1 v.$spacing-3;
+  background: rgba(255, 255, 255, 0.08);
+  color: v.$color-text-primary;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-sm;
+  font-weight: v.$font-weight-semibold;
+  letter-spacing: v.$letter-spacing-wide;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: v.$radius-full;
+  cursor: pointer;
+  transition: all v.$transition-fast v.$transition-timing;
+  user-select: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

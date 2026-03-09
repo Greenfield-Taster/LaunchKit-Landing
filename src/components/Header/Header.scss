@@ -1,0 +1,148 @@
+@use "../../styles/variables" as v;
+
+$header-height-desktop: 80px;
+$header-height-mobile: 64px;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: v.$z-fixed;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: all v.$transition-slow v.$transition-timing;
+
+  &--scrolled {
+    background: rgba(24, 24, 27, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height-desktop;
+
+    @media (max-width: v.$breakpoint-md) {
+      height: $header-height-mobile;
+    }
+  }
+
+  &__logo {
+    font-size: v.$font-size-xl;
+    font-weight: v.$font-weight-bold;
+    color: v.$color-text-primary;
+    text-decoration: none;
+    letter-spacing: v.$letter-spacing-tight;
+    flex-shrink: 0;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: v.$spacing-8;
+
+    @media (max-width: v.$breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &__nav-link {
+    background: none;
+    border: none;
+    color: v.$color-text-secondary;
+    font-family: v.$font-family-base;
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-medium;
+    cursor: pointer;
+    padding: v.$spacing-2 0;
+    transition: color v.$transition-fast v.$transition-timing;
+
+    &:hover {
+      color: v.$color-text-primary;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: v.$spacing-4;
+  }
+
+  &__burger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: v.$color-text-primary;
+    cursor: pointer;
+    padding: v.$spacing-1;
+
+    @media (max-width: v.$breakpoint-md) {
+      display: inline-flex;
+    }
+  }
+
+  // Mobile menu
+  &__mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: v.$spacing-6;
+    padding: v.$spacing-6;
+    background: rgba(24, 24, 27, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all v.$transition-slow v.$transition-timing;
+
+    @media (max-width: v.$breakpoint-md) {
+      display: flex;
+    }
+
+    &--open {
+      max-height: 400px;
+      opacity: 1;
+      padding: v.$spacing-6;
+    }
+
+    &:not(.header__mobile-menu--open) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &__mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-4;
+  }
+
+  &__mobile-link {
+    background: none;
+    border: none;
+    color: v.$color-text-secondary;
+    font-family: v.$font-family-base;
+    font-size: v.$font-size-lg;
+    font-weight: v.$font-weight-medium;
+    cursor: pointer;
+    padding: v.$spacing-2 0;
+    text-align: left;
+    transition: color v.$transition-fast v.$transition-timing;
+
+    &:hover {
+      color: v.$color-text-primary;
+    }
+  }
+
+  &__mobile-actions {
+    padding-top: v.$spacing-4;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
